@@ -15,11 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
         rel="stylesheet">
 
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/public/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <link href="{{asset('assets/css/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/public/css/bootstrap-icons.css')}}" rel="stylesheet">
 
-    <link href="{{asset('assets/css/templatemo-topic-listing.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/public/css/templatemo-topic-listing.css')}}" rel="stylesheet">
     <!--
 
 TemplateMo 590 topic listing

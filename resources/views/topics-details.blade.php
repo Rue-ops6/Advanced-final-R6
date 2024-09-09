@@ -6,11 +6,12 @@
 @include('includes.sideNAV')
 
 @push('pageTitle')
-Testimonials
+Topics Listing
 @endpush
 @include('includes.pageTitle')
 
 
 {{-- Sections --}}
-@include('includes.sections.testimonials')
+@include('includes.sections.details')
+@include('includes.sections.Newsletter')
 @endsection
