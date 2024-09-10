@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('content');
+            $table->boolean('pubished');
+
+            $table->string('image', 250);
+            #for when we make a relation w/the admins
+            //$table->foreignId('adminID')->constrained('admins')->unique;
             $table->timestamps();
         });
     }

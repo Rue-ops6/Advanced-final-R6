@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
-}
+    protected $fillable = [
+        'topicTitle',
+        'content',
+        'image',
+        'views',
+        'trendings',
+        'published',
+        'catID',
+        ];
+
+        public function category() {
+            return $this->belongsTo(Category::class, 'catID');
+        }
+    }

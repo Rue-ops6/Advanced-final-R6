@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-@include('includes.sideHeader')
+@include('includes.header')
     <body class="topics-listing-page" id="top">
 @include('includes.sideNAV')
 

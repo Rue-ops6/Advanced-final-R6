@@ -1,7 +1,7 @@
 @extends('errors::minimal')
 @extends('layouts.main')
 @section('content')
-@include('includes.indexHeader')
+@include('includes.header')
 @include('includes.indexNAV')
 
 {{-- Sections --}}
