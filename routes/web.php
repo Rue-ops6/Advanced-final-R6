@@ -11,6 +11,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\admin\TopicController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ImageController;
 
 
 Route::get('/', function () {
@@ -35,5 +36,5 @@ Route::get('topics/listings',[PublicController::class,'listings'])->name('listin
 
 //Admin dashboard
 Route::get('testimonials',[TestimonialController::class,'testimonials'])->name('testimonials');
-
-
+//uploadFile (e.g. image)
+Route::post('upload/files',[ImageController::class,'uploadFile'])->name('uploadFile');

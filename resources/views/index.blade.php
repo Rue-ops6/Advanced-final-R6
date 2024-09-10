@@ -2,7 +2,7 @@
 
 @section('content')
 @include('includes.indexNAV')
-@include('includes.indexHeader')
+@include('includes.header')
 @include('includes.searchbar')
 
 {{-- Sections --}}
