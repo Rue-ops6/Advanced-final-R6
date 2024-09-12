@@ -36,5 +36,7 @@ Route::get('topics/listings',[PublicController::class,'listings'])->name('listin
 
 //Admin dashboard
 Route::get('testimonials',[TestimonialController::class,'testimonials'])->name('testimonials');
+Route::get('add/categories',[CategoryController::class,'add'])->name('add_categories');
+
 //uploadFile (e.g. image)
 Route::post('upload/files',[ImageController::class,'uploadFile'])->name('uploadFile');
