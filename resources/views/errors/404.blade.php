@@ -1,9 +1,9 @@
 @extends('errors::minimal')
 @extends('layouts.main')
 @section('content')
-@include('includes.header')
-@include('includes.indexNAV')
+@include('public.includes.header')
+@include('public.includes.indexNAV')
 
 {{-- Sections --}}
-@include('includes.sections.404')
+@include('errors.sections.404')
 @endsection

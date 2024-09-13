@@ -14,19 +14,19 @@
 
                         <ul class="site-footer-links">
                             <li class="site-footer-link-item">
-                                <a href="{{route('index')}}" class="site-footer-link">Home</a>
+                                <a href="{{route('index')}}#section_1" class="site-footer-link">Home</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#section_3" class="site-footer-link">How it works</a>
+                                <a href="{{route('index')}}#section_3" class="site-footer-link">How it works</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">FAQs</a>
+                                <a href="{{route('index')}}#section_4" class="site-footer-link">FAQs</a>
                             </li>
 
                             <li class="site-footer-link-item">
-                                <a href="#" class="site-footer-link">Contact</a>
+                                <a href="{{route('index')}}#section_6" class="site-footer-link">Contact</a>
                             </li>
                         </ul>
                     </div>

@@ -1,4 +1,4 @@
-  <script src="assests/js/jquery.min.js"></script>
-  <script src="assests/js/bootstrap.bundle.min.js"></script>
-  <script src="assests/js/dataTables.min.js"></script>
-  <script src="assests/js/tables.js"></script>
+    <script src="{{asset('assets/admin/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/tables.js')}}"></script>

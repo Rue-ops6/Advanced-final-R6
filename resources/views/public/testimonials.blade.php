@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-@include('includes.header')
+@include('public.includes.header')
     <body class="topics-listing-page" id="top">
-@include('includes.sideNAV')
+@include('public.includes.sideNAV')
 
 @push('pageTitle')
 Testimonials
 @endpush
-@include('includes.pageTitle')
+@include('public.includes.pageTitle')
 
 
 {{-- Sections --}}
-@include('includes.sections.testimonials')
+@include('public.includes.sections.testimonials')
 @endsection

@@ -1,19 +1,6 @@
-@extends('layouts.main')
-
+@extends('layouts.admin')
 @section('content')
 
-@push('pageTitle')
-Testimonials
-@endpush
-@include('includes.pageTitle')
-
 {{-- Sections --}}
-@include('categories.add')
+@include('admin.categories.sections.add')
 @endsection
-
-
-
-
-
-
-

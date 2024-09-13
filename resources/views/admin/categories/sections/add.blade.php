@@ -1,6 +1,4 @@
-  <div class="container my-5">
-    <div class="mx-2">
-      <h2 class="fw-bold fs-2 mb-5 pb-2">Add Category</h2>
+<h2 class="fw-bold fs-2 mb-5 pb-2">Add Category</h2>
       <form action="" method="" class="px-md-5">
         <div class="form-group mb-3 row">
           <label for="" class="form-label col-md-2 fw-bold text-md-end">Category Name:</label>
@@ -16,3 +14,4 @@
       </form>
     </div>
   </div>
+  </main>
