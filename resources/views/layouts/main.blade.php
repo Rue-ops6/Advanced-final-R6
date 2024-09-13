@@ -7,8 +7,8 @@
 @yield('content')
     </main>
 
-@include('includes.footer')
-@include('includes.Jslib')
+@include('public.includes.footer')
+@include('public.includes.JSlib')
 
 </body>
 </html>

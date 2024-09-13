@@ -17,27 +17,27 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            <a class="nav-link click-scroll" href="{{route('index')}}#section_1">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">Browse Topics</a>
+                            <a class="nav-link click-scroll" href="{{route('index')}}#section_2">Browse Topics</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                            <a class="nav-link click-scroll" href="{{route('index')}}#section_3">How it works</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            <a class="nav-link click-scroll" href="{{route('index')}}#section_4">FAQs</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Testimonials</a>
+                            <a class="nav-link click-scroll" href="{{route('index')}}#section_5">Testimonials</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_6">Contact</a>
+                            <a class="nav-link click-scroll" href="{{route('index')}}#section_6">Contact</a>
                         </li>
                         <li class="border"></li>
 
@@ -47,7 +47,7 @@
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                 <li><a class="dropdown-item" href="{{route('contactus')}}">Contact Us</a></li>
-                                <li><a class="dropdown-item" href="{{route('testimonials')}}">Our Client Says</a></li>
+                                <li><a class="dropdown-item" href="{{route('allTestimonials')}}">Our Client Says</a></li>
                                 <li><a class="dropdown-item" href="{{route('listings')}}">Topics Listing</a></li>
                                 <li><a class="dropdown-item" href="{{route('details')}}">Topics details</a></li>
                             </ul>
@@ -55,7 +55,7 @@
                     </ul>
 
                     <div class="d-none d-lg-block">
-                        <a href="../admin/register.html" class="navbar-icon bi-person smoothscroll"></a>
+                        <a href="{{route('edit_topic')}}" class="navbar-icon bi-person smoothscroll"></a>
                     </div>
                 </div>
             </div>

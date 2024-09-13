@@ -1,17 +1,17 @@
 @extends('layouts.main')
 
 @section('content')
-@include('includes.header')
+@include('public.includes.header')
     <body class="topics-listing-page" id="top">
-@include('includes.sideNAV')
+@include('public.includes.sideNAV')
 
 @push('pageTitle')
 Contact Us
 @endpush
-@include('includes.pageTitle')
+@include('public.includes.pageTitle')
 
 
 {{-- Sections --}}
-@include('includes.sections.mailing')
+@include('public.includes.sections.mailing')
 @endsection
 
