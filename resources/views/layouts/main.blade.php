@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 
-
 <body id="top">
     <main>
-@yield('content')
+        @yield('content')
     </main>
 
-@include('public.includes.footer')
-@include('public.includes.JSlib')
+    @include('public.includes.footer')
+    @include('public.includes.JSlib')
 
 </body>
+
 </html>

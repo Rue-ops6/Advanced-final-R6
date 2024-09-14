@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     /**
-     1)  Display a listing of the resource.
+    1)  Display a listing of the resource.
      */
     public function index()
     {
@@ -32,7 +32,7 @@ class PublicController extends Controller
     }
 
 /*
-   2)
-*/
+2)
+ */
 
 }

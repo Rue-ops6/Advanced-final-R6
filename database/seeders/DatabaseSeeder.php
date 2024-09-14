@@ -1,11 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\Category;
+use App\Models\Testimonial;
 use App\Models\Topic;
 use App\Models\contact;
 use App\Models\User;
-use App\Models\Testimonial;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,8 +23,8 @@ class DatabaseSeeder extends Seeder
         Topic::factory(10)->create();
 
         /*User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);*/
+    'name' => 'Test User',
+    'email' => 'test@example.com',
+    ]);*/
     }
 }
