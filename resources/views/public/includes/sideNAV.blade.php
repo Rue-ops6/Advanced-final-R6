@@ -27,7 +27,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('testimonials') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('allTestimonials') ? 'active' : '' }}"
                         href="{{ route('allTestimonials') }}">Our Client Says</a>
                 </li>
 

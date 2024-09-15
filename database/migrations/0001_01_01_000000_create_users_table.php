@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('FirstName');
             $table->string('LastName');
             $table->string('UserName')->unique();
-            $table->string('Email')->unique();
-            $table->timestamp('Email_verified_at')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('github_id')->nullable();
             $table->string('github_token')->nullable();

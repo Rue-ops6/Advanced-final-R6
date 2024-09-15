@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ContactMailer;
@@ -22,8 +22,8 @@ class ContactController extends Controller
         $data = $request->except('_token');
         // dd($data);
         /*Mail::to('test@example.com')->send(new ContactMailer($data));
-        return "Msg sent successfuly";
-        */
+    return "Msg sent successfuly";
+     */
     }
 
 }

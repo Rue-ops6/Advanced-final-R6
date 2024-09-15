@@ -31,7 +31,7 @@ class TopicFactory extends Factory
             'published' => fake()->numberBetween(0, 1),
             #'image' => basename(fake()->image(public_path('assets/admin/images/topics/'))),
             'image' => $this->generateRandomImage(public_path('assets/admin/images/topics/')),
-            'catID' => fake()->numberBetween(1, 10),
+            'catID' => fake()->numberBetween(1, 5),
         ];
     }
 }
