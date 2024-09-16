@@ -24,11 +24,12 @@
                                 <img class="img-md rounded-circle"
                                     src="{{ asset('assets/admin/images/avatar-default.svg') }}" alt="Profile image"
                                     width="80" height="80" />
-                                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                                <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->UserName }}</p>
+                                <p class="fw-light text-muted mb-0">{{ Auth::user()->email }}</p>
                             </div>
-                            <a class="dropdown-item">My Profile</a>
-                            <a class="dropdown-item">Sign Out</a>
+                            <a class="dropdown-item" href="{{ route('home') }}">My Profile</a>
+                            {{-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> --}}
+                            <a class="dropdown-item" href="{{ route('logout') }}" >Sign Out</a>
                             <p class="footer" style="padding-top: 15px; font-size: 9px; text-align: center">
                                 Privacy Policy . Terms . Cookies
                             </p>

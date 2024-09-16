@@ -27,8 +27,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ route('index') }}">
+                    {{ config('Topics platform', 'Topics platform') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -52,7 +52,7 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            @if (Route::has('register') && config('auth.registration_enabled'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
@@ -61,13 +61,14 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->UserName }}
+                                    {{-- {{ Auth::user()->email }} --}}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -76,7 +77,18 @@
                                     </form>
                                 </div>
                             </li>
+                        <!-- Admin Links ---- can be removed-->
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users') }}">{{ __('Admin Dashboard') }}</a>
+                            </li>
+                        @endauth
                         @endguest
+                        @can('admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Admin Dashboard') }}</a>
+                            </li>
+                        @endcan
                     </ul>
                 </div>
             </div>
@@ -86,6 +98,19 @@
             @yield('content')
         </main>
     </div>
+
+    <!--The jQuery and custom script here --- can be removed-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/3pwtIp+KlL1R0Ac7Pmx5/eQd4PEoBjl04t5y4v" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-item[href="{{ route('logout') }}"]').on('click', function(event) {
+                event.preventDefault();
+                $('#logout-form').submit();
+            });
+        });
+    </script>
 </body>
 
 </html>
