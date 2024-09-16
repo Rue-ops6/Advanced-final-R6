@@ -21,18 +21,17 @@ class TopicFactory extends Factory
      * @return array<string, mixed>
      */
 
-
     public function definition(): array
     {
         return [
-            'topicTitle' => fake()->randomElement(['BMW', 'SuprAaa', 'nobelSmart']),
+            'topicTitle' => fake()->randomElement(['Methodology', 'Intangible crafts', 'UCH', 'underdogs|storries', 'Dark Heritage']),
             'content' => fake()->text(),
             'views' => fake()->numberBetween(1, 10),
             'trendings' => fake()->numberBetween(1, 10),
             'published' => fake()->numberBetween(0, 1),
-            #'image' => basename(fake()->image(public_path('assets/images/product'))),
-            'image' => $this->generateRandomImage(public_path('assets/images/')),
-            'catID' => fake()->numberBetween(1, 10),
+            #'image' => basename(fake()->image(public_path('assets/admin/images/topics/'))),
+            'image' => $this->generateRandomImage(public_path('assets/admin/images/topics/')),
+            'catID' => fake()->numberBetween(1, 5),
         ];
     }
 }

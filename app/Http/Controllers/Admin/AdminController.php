@@ -72,6 +72,4 @@ class AdminController extends Controller
         return view('admin.messages.message_details');
     }
 
-
-
 }

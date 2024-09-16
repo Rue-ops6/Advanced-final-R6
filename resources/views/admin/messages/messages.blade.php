@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
-{{-- Sections --}}
-@include('admin.messages.sections.msg')
+    {{-- Sections --}}
+    @include('admin.messages.sections.msg')
 @endsection

@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
-{{-- Sections --}}
-@include('admin.topics.sections.details')
+    {{-- Sections --}}
+    @include('admin.topics.sections.details')
 @endsection

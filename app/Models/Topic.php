@@ -16,9 +16,10 @@ class Topic extends Model
         'trendings',
         'published',
         'catID',
-        ];
+    ];
 
-        public function category() {
-            return $this->belongsTo(Category::class, 'catID');
-        }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'catID');
     }
+}

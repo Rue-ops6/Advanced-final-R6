@@ -10,10 +10,10 @@ class Category extends Model
     use HasFactory;
     protected $fillable = [
         'catID',
-        ];
+    ];
 
-
-        public function student() {
-            return $this->hasMany(Topic::class, 'catID');
-        }
+    public function student()
+    {
+        return $this->hasMany(Topic::class, 'catID');
+    }
 }
