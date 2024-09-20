@@ -12,7 +12,7 @@ class Category extends Model
         'catID',
     ];
 
-    public function student()
+    public function topics()
     {
         return $this->hasMany(Topic::class, 'catID');
     }

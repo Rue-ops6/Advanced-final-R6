@@ -80,7 +80,7 @@
                         <!-- Admin Links ---- can be removed-->
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users') }}">{{ __('Admin Dashboard') }}</a>
+                                <a class="nav-link" href="{{ route('users.list') }}">{{ __('Admin Dashboard') }}</a>
                             </li>
                         @endauth
                         @endguest

@@ -4,7 +4,7 @@
         Testimonials
     @endpush
     @push('newElement')
-        href="{{ route('add_testimonial') }}"
+        href="{{ route('testimonials.add') }}"
     @endpush
     @include('admin.includes.pageTitle')
 

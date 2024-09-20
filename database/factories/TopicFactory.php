@@ -26,8 +26,7 @@ class TopicFactory extends Factory
         return [
             'topicTitle' => fake()->randomElement(['Methodology', 'Intangible crafts', 'UCH', 'underdogs|storries', 'Dark Heritage']),
             'content' => fake()->text(),
-            'views' => fake()->numberBetween(1, 10),
-            'trendings' => fake()->numberBetween(1, 10),
+            'views' => fake()->numberBetween(1, 20),
             'published' => fake()->numberBetween(0, 1),
             #'image' => basename(fake()->image(public_path('assets/admin/images/topics/'))),
             'image' => $this->generateRandomImage(public_path('assets/admin/images/topics/')),

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('content');
             $table->boolean('published');
             $table->integer('views');
-            $table->integer('trendings');
 
             $table->string('image', 250);
             $table->foreignId('catID')->constrained('categories')->unique;

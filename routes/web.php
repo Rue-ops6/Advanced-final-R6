@@ -36,7 +36,7 @@ Route::get('register', [RegisterController::class, 'register'])->name('register'
 //     return view('login');
 // })->name('login');
 // Route::post('/logged', function () {
-//     return view(view: 'home');
+//  return view(view: 'home');
 // })->name('logged');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login'); // Show the login form
 Route::post('logged', [LoginController::class, 'login'])->name('logged'); // Handle the login form submission

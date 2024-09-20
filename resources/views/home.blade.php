@@ -21,7 +21,7 @@
                                     @endif
 
                                     {{ __('You are logged in!') }}
-                                    <a href="{{ route('topics') }}"
+                                    <a href="{{ route('topics.list') }}"
                                         class="fw-semibold fs-6 text-decoration-none text-primary">{{ __('Take me to the articles platform..') }}
                                     </a>
                                     <style>
@@ -32,13 +32,14 @@
                                             /* Changes the link color on hover */
                                         }
                                     </style>
-                                    <img href="{{ route('topics') }}"
-                                        src= "{{ asset('assets/admin/images/arrow-sm-right-svgrepo-com.svg') }}"
-                                        alt="">
-
+                                    <a href="{{ route('topics.list') }}">
+                                        <img src= "{{ asset('assets/admin/images/arrow-sm-right-svgrepo-com.svg') }}"
+                                            alt="">
                                     </a>
+                                    <a href="{{ route('topics.list') }}">
                                     <img src="{{ asset('assets/admin/images/rear-view-young-college-student.jpg') }}"
-                                        alt="" class="img-fluid" style="max-width: 450px; max-height: 450px;">
+                                        alt="" class="img-fluid" styleifdsa="max-width: 450px; max-height: 450px;">
+                                    </a>
                                 </div>
                             </div>
                         </div>

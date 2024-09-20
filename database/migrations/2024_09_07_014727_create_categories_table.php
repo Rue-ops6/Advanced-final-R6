@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->id()->unique()
+            //Delete all related topics
+                  ->on('categories')
+                  ->references('id')
+                  ->onDelete('cascade');
             $table->string('category', 60)->unique();
             $table->timestamps();
         });

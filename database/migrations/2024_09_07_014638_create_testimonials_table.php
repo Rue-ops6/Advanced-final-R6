@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('content');
-            $table->boolean('pubished');
+            $table->boolean('published');
 
             $table->string('image', 250);
             #for when we make a relation w/the admins

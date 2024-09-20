@@ -12,17 +12,27 @@
         </thead>
 
         <tbody>
-            <tr>
-                <th scope="row">18 Jul 2024</th>
-                <td>Jhon Doe</td>
-                <td>Lorem ipsum dolor sit amet consectetur...</td>
-                <td>YES</td>
-                <td class="text-center"><a class="text-decoration-none text-dark"
-                        href="{{ route('edit_testimonial') }}"><img
-                            src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
-                <td class="text-center"><a class="text-decoration-none text-dark" href="#"><img
-                            src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></a></td>
-            </tr>
+            @foreach ($testimonials as $test)
+                <tr>
+                    <th scope="row">{{ date('d M Y', strtotime($test['updated_at'])) }}</th>
+                    <td>{{ $test['name'] }}</td>
+                    <td>{{ Str::limit($test['content'], 44, $end = '...') }}</td>
+                    <td>{{ $test['published'] == 1 ? 'yes' : 'no' }}</td>
+                    <td class="text-center"><a class="text-decoration-none text-dark"
+                            href="{{ route('testimonials.edit') }}"><img
+                                src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
+                    <td class="text-decoration-none text-dark">
+                        <form action="{{ route('testimonials.destroy', $test['id']) }}" method='POST'
+                            onclick="return confirm('Are you sure you want to delete?')">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-link m-0 p-0"><img
+                                    src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></button>
+                        </form>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

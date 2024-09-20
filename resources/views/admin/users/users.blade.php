@@ -4,7 +4,7 @@
         Users
     @endpush
     @push('newElement')
-        href="{{ route('add_user') }}"
+        href="{{ route('users.add') }}"
     @endpush
     @include('admin.includes.pageTitle')
 

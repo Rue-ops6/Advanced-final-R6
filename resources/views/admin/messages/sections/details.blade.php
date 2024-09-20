@@ -26,7 +26,7 @@
 
                 <div class="text-md-end">
                     <a class="btn mt-4 btn-secondary text-white fs-5 fw-bold border-0 py-2 px-md-5"
-                        href="{{ route('messages') }}">
+                        href="{{ route('messages.list') }}">
                         Back to All Messaages
                     </a>
                 </div>
