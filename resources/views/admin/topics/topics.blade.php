@@ -4,7 +4,7 @@
         Topics
     @endpush
     @push('newElement')
-        href="{{ route('add_topic') }}"
+        href="{{ route('topics.add') }}"
     @endpush
     @include('admin.includes.pageTitle')
 

@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Testimonial extends Model
+class Contact extends Model
 {
     use HasFactory;
     protected $fillable = [
         'name',
+        'email',
+        'msgTitle',
         'content',
-        'image',
-        'published',
     ];
 }

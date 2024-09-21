@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('github_id')->nullable();
             $table->string('github_token')->nullable();
             $table->string('github_refresh_token')->nullable();
-            $table->boolean('expired')->default(0);
+            $table->boolean('active')->default(1); #0= thier session has expired
             $table->rememberToken();
             $table->timestamps();
         });

@@ -9,10 +9,10 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'catID',
+        'category',
     ];
 
-    public function student()
+    public function topics()
     {
         return $this->hasMany(Topic::class, 'catID');
     }

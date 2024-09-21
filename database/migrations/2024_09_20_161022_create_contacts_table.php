@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('testimonials', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('content');
-            $table->boolean('published');
-
-            $table->string('image', 250);
-            #for when we make a relation w/the admins
-            //$table->foreignId('adminID')->constrained('admins')->unique;
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('msgTitle', 100);
+            $table->text('content');
+            $table->string('status')->default(0); //0 = unread
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('testimonials');
+        Schema::dropIfExists('contacts');
     }
 };

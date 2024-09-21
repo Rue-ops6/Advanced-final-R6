@@ -43,7 +43,7 @@
             </ul>
 
             <div class="d-none d-lg-block">
-                <a href="../admin/register.html" class="navbar-icon bi-person smoothscroll"></a>
+                <a href="{{ route('register') }}" class="navbar-icon bi-person smoothscroll"></a>
             </div>
         </div>
     </div>

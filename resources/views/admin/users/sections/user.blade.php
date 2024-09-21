@@ -13,17 +13,28 @@
         </thead>
 
         <tbody>
-            <tr>
-                <th scope="row">18 Jul 2024</th>
-                <td>Mark Henry</td>
-                <td>Mark33</td>
-                <td>mark@example.com</td>
-                <td>YES</td>
-                <td class="text-center"><a class="text-decoration-none text-dark" href="{{ route('edit_user') }}"><img
-                            src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
-                <td class="text-center"><a class="text-decoration-none text-dark" href="#"><img
-                            src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></a></td>
-            </tr>
+            @foreach ($users as $user)
+                <tr>
+                    <th scope="row">{{ date('d M Y', strtotime($user['updated_at'])) }}</th>
+                    <td>{{ $user['FirstName'] }} {{ $user['LastName'] }}</td>
+                    <td>{{ $user['UserName'] }}</td>
+                    <td>{{ $user['email'] }}</td>
+                    <td>{{ $user['active'] == 1 ? 'yes' : 'no' }}</td>
+                    <td class="text-center"><a class="text-decoration-none text-dark"
+                            href="{{ route('users.edit', $user['id']) }}"><img
+                                src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
+                    <td class="text-decoration-none text-dark">
+                        <form action="{{ route('users.destroy', $user['id']) }}" method='POST'
+                            onclick="return confirm('Are you sure you want to delete?')">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-link m-0 p-0"><img
+                                    src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></button>
+                        </form>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

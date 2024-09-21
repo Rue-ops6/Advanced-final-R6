@@ -10,14 +10,25 @@
         </thead>
 
         <tbody>
-            <tr>
-                <th scope="row">18 Jul 2024</th>
-                <td>Computer Science</td>
-                <td class="text-center"><a class="text-decoration-none text-dark" href="{{ route('edit_category') }}"><img
-                            src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
-                <td class="text-center"><a class="text-decoration-none text-dark" href="#"><img
-                            src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></a></td>
-            </tr>
+            @foreach ($categories as $cat)
+                <tr>
+                    <th scope="row">{{ date('d M Y', strtotime($cat['updated_at'])) }}</th>
+                    <td {{ $cat['id'] }}>{{ $cat->category }}</td>
+                    <td class="text-center"><a class="text-decoration-none text-dark"
+                            href="{{ route('categories.edit', $cat['id']) }}"><img
+                                src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
+                    <td class="text-decoration-none text-dark">
+                        <form action="{{ route('categories.destroy', $cat['id']) }}" method='POST'
+                            onclick="return confirm('Are you sure you want to delete?')">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-link m-0 p-0"><img
+                                    src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></button>
+                        </form>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

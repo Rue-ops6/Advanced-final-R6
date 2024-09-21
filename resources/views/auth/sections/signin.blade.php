@@ -1,5 +1,5 @@
 <div class="col-md-7">
-    <form method="POST" action="{{ route('logged') }}"
+    <form method="POST" action="{{ route('login') }}"
         class="text-center h-100 px-3 d-flex flex-column justify-content-center">
         <h3 class="fw-semibold mb-5">LOGIN FORM</h3>
         @csrf

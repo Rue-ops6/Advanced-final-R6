@@ -16,37 +16,103 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\TopicController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RelationController;
+//use App\Http\Controllers\Admin\MessageController;
 
 use App\Http\Controllers\Admin\ImageController;
+use App\Models\Testimonial;
+
 
 ##) Admin dashboard
+//Users
 Route::group([
-    'prefix' => 'admin', #for the uri
-    'controller' => AdminController::class, #then we'll del the [] from the pages that open in browser
+    'prefix' => 'admin/users', #for the uri
+    'controller' => UserController::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'users.', #for the name
     'middleware' => 'verified',
 ], function () {
-    Route::get('/users', 'users')->name('users');
-    Route::get('/add/user', 'add_user')->name('add_user');
-    Route::get('/edit/user', 'edit_user')->name('edit_user');
-    Route::get('/topics', 'topics')->name('topics');
-    Route::get('/topic/details', 'topic_details')->name('topic_details');
-    Route::get('/add/topic', 'add_topic')->name('add_topic');
-    Route::get('/edit/topic', 'edit_topic')->name('edit_topic');
-    Route::get('/categories', 'categories')->name('categories');
-    Route::get('/add/category', 'add_category')->name('add_category');
-    Route::get('/edit/category', 'edit_category')->name('edit_category');
-    Route::get('/testimonials', 'testimonials')->name('testimonials');
-    Route::get('/add/testimonial', 'add_testimonial')->name('add_testimonial');
-    Route::get('/edit/testimonial', 'edit_testimonial')->name('edit_testimonial');
-    Route::get('/messages', 'messages')->name('messages');
-    Route::get('/message/details', 'msg_details')->name('msg_details');
+    Route::get('/', 'users')->name('list'); #we can basiclly remove the name to work with just the "as"
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
+    Route::delete('/{id}', 'force_delete')->name('destroy');
 });
+//Topics
+Route::group([
+    'prefix' => 'admin/topics', #for the uri
+    'controller' => TopicController::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'topics.', #for the name
+    'middleware' => 'verified',
+], function () {
+    Route::get('/', 'topics')->name('list');
+    Route::get('/details/{id}', 'show')->name('details');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
+    Route::delete('/{id}', 'force_delete')->name('destroy');
+});
+#<!------DB relations-------¡>
+Route::get('1/many', [RelationController::class, 'DBrelations'])->name('1toM')->middleware('verified');
+
+//Categories
+Route::group([
+    'prefix' => 'admin/categories', #for the uri
+    'controller' => CategoryController::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'categories.', #for the name
+    'middleware' => 'verified',
+], function () {
+    Route::get('/', 'categories')->name('list');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
+    Route::delete('/{id}', 'force_delete')->name('destroy');
+});
+//Testimonials
+Route::group([
+    'prefix' => 'admin/testimonials', #for the uri
+    'controller' => TestimonialController::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'testimonials.', #for the name
+    'middleware' => 'verified',
+], function () {
+    Route::get('/', 'testimonials')->name('list');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
+    Route::delete('/{id}', 'force_delete')->name('destroy');
+});
+//Messages/contactus
+Route::group([
+    'prefix' => 'admin/messages', #for the uri
+    'controller' => ContactController::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'messages.', #for the name
+    'middleware' => 'verified',
+], function () {
+    Route::get('/', 'contactus')->name('list');
+    Route::get('/details/{id}', 'show')->name('details');
+    Route::delete('/{id}', 'force_delete')->name('destroy');
+});
+
 //uploadFile (e.g. image)
 Route::post('upload/files', [ImageController::class, 'uploadFile'])->name('uploadFile')->middleware('verified');
 #Route::post(uri: 'assets', [ImageController::class, 'uploadimg'])->name('uploadimg')->middleware('verified');
 
-#<!------DB relations-------¡>
-#Route::get('one2one', [RelationController::class, 'DBrelations'])->name('1-1')->middleware('verified');
+
+
+ //Registration
+ Route::get('register', [RegisterController::class, 'register'])->name('register');
+ // Route::get('/login', function () {
+ //     return view('login');
+ // })->name('login');
+ // Route::post('/logged', function () {
+ //  return view(view: 'home');
+ // })->name('logged');
+ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login'); // Show the login form
+ Route::post('logged', [LoginController::class, 'login'])->name('logged'); // Handle the login form submission
+ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 ##) authentication
 Auth::routes(['verify' => true]);

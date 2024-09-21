@@ -13,7 +13,6 @@ class Topic extends Model
         'content',
         'image',
         'views',
-        'trendings',
         'published',
         'catID',
     ];

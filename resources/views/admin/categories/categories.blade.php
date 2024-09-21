@@ -4,7 +4,7 @@
         Categories
     @endpush
     @push('newElement')
-        href="{{ route('add_category') }}"
+        href="{{ route('categories.add') }}"
     @endpush
     @include('admin.includes.pageTitle')
 
