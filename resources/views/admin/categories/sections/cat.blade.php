@@ -15,7 +15,7 @@
                     <th scope="row">{{ date('d M Y', strtotime($cat['updated_at'])) }}</th>
                     <td {{ $cat['id'] }}>{{ $cat->category }}</td>
                     <td class="text-center"><a class="text-decoration-none text-dark"
-                            href="{{ route('categories.edit') }}"><img
+                            href="{{ route('categories.edit', $cat['id']) }}"><img
                                 src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
                     <td class="text-decoration-none text-dark">
                         <form action="{{ route('categories.destroy', $cat['id']) }}" method='POST'

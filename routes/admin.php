@@ -32,8 +32,10 @@ Route::group([
     'middleware' => 'verified',
 ], function () {
     Route::get('/', 'users')->name('list'); #we can basiclly remove the name to work with just the "as"
-    Route::get('/add', 'add_user')->name('add');
-    Route::get('/edit', 'edit_user')->name('edit');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
 //Topics
@@ -44,9 +46,11 @@ Route::group([
     'middleware' => 'verified',
 ], function () {
     Route::get('/', 'topics')->name('list');
-    Route::get('details', 'topic_details')->name('details');
-    Route::get('/add', 'add_topic')->name('add');
-    Route::get('/edit', 'edit_topic')->name('edit');
+    Route::get('/details/{id}', 'show')->name('details');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
 #<!------DB relations-------¡>
@@ -60,8 +64,10 @@ Route::group([
     'middleware' => 'verified',
 ], function () {
     Route::get('/', 'categories')->name('list');
-    Route::get('/add', 'add_category')->name('add');
-    Route::get('/edit', 'edit_category')->name('edit');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
 //Testimonials
@@ -72,19 +78,21 @@ Route::group([
     'middleware' => 'verified',
 ], function () {
     Route::get('/', 'testimonials')->name('list');
-    Route::get('/add', 'add_testimonial')->name('add');
-    Route::get('/edit', 'edit_testimonial')->name('edit');
+    Route::get('/add', 'create')->name('add');
+    Route::post('', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::put('{id}', 'update')->name('update');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
-//Messages
+//Messages/contactus
 Route::group([
     'prefix' => 'admin/messages', #for the uri
     'controller' => ContactController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'messages.', #for the name
     'middleware' => 'verified',
 ], function () {
-    Route::get('/', 'messages')->name('list');
-    Route::get('details', 'msg_details')->name('details');
+    Route::get('/', 'contactus')->name('list');
+    Route::get('/details/{id}', 'show')->name('details');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
 
@@ -104,7 +112,7 @@ Route::post('upload/files', [ImageController::class, 'uploadFile'])->name('uploa
  // })->name('logged');
  Route::get('login', [LoginController::class, 'showLoginForm'])->name('login'); // Show the login form
  Route::post('logged', [LoginController::class, 'login'])->name('logged'); // Handle the login form submission
- Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 ##) authentication
 Auth::routes(['verify' => true]);

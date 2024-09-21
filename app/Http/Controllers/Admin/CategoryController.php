@@ -24,27 +24,22 @@ class CategoryController extends Controller
     public function create()
     {
         #DB relation
-
+        // $category = Category::select('id', 'category')->get();
+        return view('admin.categories.add_category'); //, compact('category')
     }
-
-    ///////////////////////
-    public function add_category()
-    {
-        return view('admin.categories.add_category');
-    }
-    public function edit_category()
-    {
-        return view('admin.categories.edit_category');
-    }
-    ///////////////////////
 
     /*    #3)
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //dd($request);
-
+        #dd($request);
+        $data = $request->validate([
+            'category' => "required|string|unique:categories,category",
+        ]); #,$message);
+        #dd($data);
+        Category::create($data);
+        return redirect()->route('categories.list');
     }
 
     /*    #4)
@@ -60,7 +55,11 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-
+        $category = Category::findOrFail($id);
+        //dd($category->all());
+        #return "ccategoryar = " . $id;
+        return view('admin.categories.edit_category', compact('category'));
+        // return  $category['id'];
     }
 
     /*    #6)
@@ -68,13 +67,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     { //dd($request,$id);
-
         #validation:
-
+        $data = $request->validate([
+            'category' => "required|string|unique:categories,category,$id",
+        ]); #,$message);
+        #Category::create($data);
+        Category::where('id', $id)->update($data);
+        return redirect()->route('categories.list');
     }
-#dd($data);
-
-    //zi fi sql lw sebtaha hi3mel update * fa lazem a2wl where el class id =$id ell d5lto
 
     /*    #7)
      * Soft Delete.

@@ -25,19 +25,9 @@ class UserController extends Controller
     public function create()
     {
         #DB relation
-
-    }
-
-    ///////////////////////
-    public function add_user()
-    {
         return view('admin.users.add_user');
+
     }
-    public function edit_user()
-    {
-        return view('admin.users.edit_user');
-    }
-    ///////////////////////
 
     /*    #3)
      * Store a newly created resource in storage.
@@ -45,7 +35,24 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-
+        $data = $request->validate([
+            'FirstName' => "required|string|max:100",
+            'LastName' => "required|string|max:100",
+            'UserName' => "required|string|max:100",
+            'email' => "required|email|unique:users",
+            'password' => "required|min:8|confirmed", // for pwd and its 'confirmed' rule
+        ]); #,$message);
+        // Hash the password
+        $data['password'] = bcrypt($data['password']);
+        // once the user is added, he is active until he loss his session
+        $data['active'] = 1;
+        // To verify guest's email in order to acces admin dashboard
+        $data['email_verified_at'] = now();
+        // $user = User::create($data);
+        // $user->sendEmailVerificationNotification(); #manually do it
+        #dd($data);
+        User::create($data);
+        return redirect()->route('users.list')->with('success', 'User created and email verified.');
     }
 
     /*    #4)
@@ -61,7 +68,10 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-
+        $user = User::findOrFail($id);
+        //dd($users->all());
+        #return "users = " . $id;
+        return view('admin.users.edit_user', compact('user'));
     }
 
     /*    #6)
@@ -71,11 +81,23 @@ class UserController extends Controller
     { //dd($request,$id);
 
         #validation:
-
+        $data = $request->validate([
+            'FirstName' => "required|string|max:100",
+            'LastName' => "required|string|max:100",
+            'UserName' => "required|string|max:100",
+            'email' => "required|email|unique:users,email,$id",
+            'password' => "required|min:8",
+        ]); #,$message);
+        // Hash the password
+        $data['password'] = bcrypt($data['password']);
+        // To verify guest's email in order to acces admin dashboard
+        $data['email_verified_at'] = now();
+        $data['active'] = $request->has('active') ? 1 : 0;
+        #dd($data);
+        //zi fi sql lw sebtaha hi3mel update * fa lazem a2wl where el class id =$id ell d5lto
+        User::where('id', $id)->update($data);
+        return redirect()->route('users.list');
     }
-#dd($data);
-
-    //zi fi sql lw sebtaha hi3mel update * fa lazem a2wl where el class id =$id ell d5lto
 
     /*    #7)
      * Soft Delete.

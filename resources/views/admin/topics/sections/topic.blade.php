@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="row">{{ date('d M Y', strtotime($topic['updated_at'])) }}</th>
                     <td><a class="text-decoration-none text-dark"
-                            href="{{ route('topics.details') }}">{{ $topic['topicTitle'] }}</a>
+                            href="{{ route('topics.details', $topic['id']) }}">{{ $topic['topicTitle'] }}</a>
                     </td>
                     <td {{ $category['id'] }}>{{ $topic->category }}</td>
                     <td>{{ Str::limit($topic['content'], 44, $end = ' ...') }}</td>
@@ -34,7 +34,7 @@
                     {{-- @endforeach --}}
                     {{-- @endif --}}
                     <td class="text-center"><a class="text-decoration-none text-dark"
-                            href="{{ route('topics.edit') }}"><img
+                            href="{{ route('topics.edit', $topic['id']) }}"><img
                                 src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
                     <td class="text-decoration-none text-dark">
                         <form action="{{ route('topics.destroy', $topic['id']) }}" method='POST'

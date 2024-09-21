@@ -1,9 +1,15 @@
 <h2 class="fw-bold fs-2 mb-5 pb-2">Edit Category</h2>
-<form action="" method="" class="px-md-5">
+<form action="{{ route('categories.update', $category->id) }}" method="POST" class="px-md-5" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Category Name:</label>
         <div class="col-md-10">
-            <input type="text" placeholder="e.g. Computer Science" class="form-control py-2" />
+            <input type="text" placeholder="e.g. ECTD" class="form-control py-2"
+                value="{{ old('category', $category->category) }}" name="category" />
+            @error('category')
+                <div class="alert alert-warning">{{ $message }}</div>
+            @enderror
         </div>
     </div>
     <div class="text-md-end">

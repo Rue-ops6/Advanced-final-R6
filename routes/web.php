@@ -40,7 +40,7 @@ Route::get('register', [RegisterController::class, 'register'])->name('register'
 // })->name('logged');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login'); // Show the login form
 Route::post('logged', [LoginController::class, 'login'])->name('logged'); // Handle the login form submission
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 #<!------Socialmedia login-------¡>

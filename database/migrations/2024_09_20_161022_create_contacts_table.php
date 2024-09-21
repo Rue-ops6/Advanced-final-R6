@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('category', 60)->unique()
-            //Delete all related topics
-                  ->on('categories')
-                  ->references('id')
-                  ->onDelete('cascade');
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('msgTitle', 100);
+            $table->text('content');
+            $table->string('status')->default(0); //0 = unread
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('contacts');
     }
 };

@@ -19,9 +19,9 @@
                     <td>{{ $user['FirstName'] }} {{ $user['LastName'] }}</td>
                     <td>{{ $user['UserName'] }}</td>
                     <td>{{ $user['email'] }}</td>
-                    <td>{{ $user['expired'] == 1 ? 'yes' : 'no' }}</td>
+                    <td>{{ $user['active'] == 1 ? 'yes' : 'no' }}</td>
                     <td class="text-center"><a class="text-decoration-none text-dark"
-                            href="{{ route('users.edit') }}"><img
+                            href="{{ route('users.edit', $user['id']) }}"><img
                                 src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>
                     <td class="text-decoration-none text-dark">
                         <form action="{{ route('users.destroy', $user['id']) }}" method='POST'
