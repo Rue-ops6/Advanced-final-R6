@@ -16,7 +16,6 @@
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Category:</label>
         <div class="col-md-10">
             <select name="catID" id="" class="form-control py-1">
-                <option value="">Select Category</option>
                 @foreach ($category as $cat)
                     <option value="{{ $cat->id }}" @selected(old('catID', $topic->catID) == $cat->id)>{{ $cat->category }}</option>
                 @endforeach

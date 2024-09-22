@@ -27,7 +27,7 @@ class TestimonialFactory extends Factory
             'name' => fake()->randomElement(['Emily', 'Johnathan', 'Kurtis', 'Jane_Doe', 'John-Doe']),
             'content' => fake()->text(),
             'published' => fake()->boolean(),
-            #'image' => basename(fake()->image(public_path('assets/admin/images/testimonials/'))),
+            // 'image' => basename(fake()->image(public_path('assets/admin/images/testimonials/'))),
             'image' => $this->generateRandomImage(public_path('assets/admin/images/testimonials/')),
         ];
     }

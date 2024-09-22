@@ -27,7 +27,7 @@ class ContactFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'msgTitle' => fake()->catchPhrase(),
             'content' => collect(fake()->paragraphs(5))->map(fn($p) => $p)->implode(' '),#For At Least 500 Characters
-            // 'status'=>fake()->numberBetween(0, 1),
+            'status'=>fake()->numberBetween(0, 1),
         ];
     }
 }

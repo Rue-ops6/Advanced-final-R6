@@ -50,21 +50,16 @@ Route::get('auth/github/callback', [SocialMedia::class, 'callback'])->name('call
 
 ##) Public dashboard
 Route::get('index', [PublicController::class, 'index'])->name('index');
-Route::get('contact/us', [PublicController::class, 'contactus'])->name('contactus');
-Route::get('topics/details', [PublicController::class, 'details'])->name('details');
 Route::get('topics/listings', [PublicController::class, 'listings'])->name('listings');
 Route::get('all/testimonials', [TestimonialController::class, 'allTestimonials'])->name('allTestimonials');
 
-
-
-#<!------DB relations-------¡>
-#Route::get('one2one', [RelationController::class, 'DBrelations'])->name('1-1')->middleware('verified');
-
 #<!------Mailing-------¡>
-//Route::get('contactus', [ContactController::class, 'sendFrom'])->name('sendFrom');
-//Route::post('contactus', [ContactController::class, 'sendTo'])->name('sendTo');
-Route::get('contact-us', [ContactController::class, 'contactForm'])->name('contactForm');
-Route::post('contact-us', [ContactController::class, 'sendEmail'])->name('sendEmail');
+//mailing/messages/contactus
+Route::get('contact/us/form', [ContactController::class, 'contactForm'])->name('contactus');
+Route::post('receive/ur/email', [ContactController::class, 'contactEmail'])->name('contactEmail');
+//quoting mailable
+Route::get('topics/details', [PublicController::class, 'details'])->name('details');
+Route::post('Newsletter', [ContactController::class, 'MailQuoting'])->name('MailQuoting');
 
 
 ##) authentication

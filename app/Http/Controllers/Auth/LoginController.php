@@ -44,6 +44,7 @@ class LoginController extends Controller
      */
     protected function validateLogin(Request $request)
     {
+        session()->put('test', 'First Laravel session');
         $request->validate([
             'UserName' => 'required|string',
             'password' => 'required|string',

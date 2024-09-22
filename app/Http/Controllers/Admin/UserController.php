@@ -4,14 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\uploadFile;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    #use Common;
+    use uploadFile;
 
     public function users()
     {
+        #dd(session('test'));
+
         /* get all users from db '
         return view all users, users data
         select * from users = User::get();*/
@@ -24,7 +27,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        #DB relation
         return view('admin.users.add_user');
 
     }
@@ -34,6 +36,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // added once and for all in any controller's function
+        // session()->put('test', 'First Laravel session');
+        session()->flash('test', 'First Laravel session');
+
         //dd($request);
         $data = $request->validate([
             'FirstName' => "required|string|max:100",

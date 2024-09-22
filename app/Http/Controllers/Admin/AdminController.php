@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Traits\uploadFile;
 
 class AdminController extends Controller
 {
+    use uploadFile;
     public function users()
     {
         return view('admin.users.users');

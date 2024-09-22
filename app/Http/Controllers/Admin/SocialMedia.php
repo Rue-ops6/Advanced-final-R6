@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,11 +13,13 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialMedia extends Controller
 {
-    public function redirect() {
+    public function redirect()
+    {
         return Socialite::driver('github')->redirect();
     }
-    public function callback() {
-        $githubUser = Socialite::driver('github')->stateless()->user();
+    public function callback()
+    {
+        $githubUser = Socialite::driver('github')->stateless()->user();  //stateless is not erroring
 //dd($githubUser);
 
         $user = User::updateOrCreate([
@@ -26,10 +29,11 @@ class SocialMedia extends Controller
             'email' => $githubUser->email,
             'github_token' => $githubUser->token,
             'github_refresh_token' => $githubUser->refreshToken,
-           'password' => Hash::make(Str::password(30)),
+            'password' => Hash::make(Str::password(30)),
         ]);
 
         Auth::login($user);
 
         return redirect('/');
-    }}
+    }
+}
