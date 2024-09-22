@@ -14,10 +14,7 @@ class PublicController extends Controller
     {
         return view('public.index');
     }
-    public function contactus()
-    {
-        return view('public.contactus');
-    }
+
     public function testimonials()
     {
         return view('public.testimonials');

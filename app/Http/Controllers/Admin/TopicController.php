@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Topic;
+use App\Traits\uploadFile;
 use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
-    #use Common;
+    use uploadFile;
 
     /*    #1)
      * Display a listing of the resource.

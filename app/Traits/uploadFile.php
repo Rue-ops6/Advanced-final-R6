@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Traits;
+use Illuminate\Http\Request;
 
 trait uploadFile
 {
+
     public function uploadFile($file, $path)
     {
         $file_extension = $file->getClientOriginalExtension();

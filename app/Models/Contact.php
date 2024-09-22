@@ -13,5 +13,6 @@ class Contact extends Model
         'email',
         'msgTitle',
         'content',
+        'status',
     ];
 }

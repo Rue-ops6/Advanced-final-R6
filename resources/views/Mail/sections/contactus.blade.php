@@ -7,12 +7,13 @@
             </div>
 
             <div class="col-lg-6 col-12">
-                <form action="#" method="post" class="custom-form contact-form" role="form">
+                <form action="{{ route('contactEmail') }}" method="POST" class="custom-form contact-form" role="form">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-floating">
-                                <input type="text" name="name" id="name" class="form-control"
-                                    placeholder="Name" required="">
+                                <input type="text" id="name" class="form-control" placeholder="Name"
+                                    name="name" required="">
 
                                 <label for="floatingInput">Name</label>
                             </div>
@@ -20,8 +21,8 @@
 
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-floating">
-                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                    class="form-control" placeholder="Email address" required="">
+                                <input type="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control"
+                                    placeholder="Email address" name="email" required="">
 
                                 <label for="floatingInput">Email address</label>
                             </div>
@@ -29,15 +30,14 @@
 
                         <div class="col-lg-12 col-12">
                             <div class="form-floating">
-                                <input type="text" name="subject" id="name" class="form-control"
-                                    placeholder="Name" required="">
+                                <input type="text" id="name" class="form-control" placeholder="Name"
+                                    name="msgTitle" required="">
 
                                 <label for="floatingInput">Subject</label>
                             </div>
 
                             <div class="form-floating">
-                                <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
-
+                                <textarea class="form-control" id="message" placeholder="Tell me about the project" name="content"></textarea>
                                 <label for="floatingTextarea">Tell me about the project</label>
                             </div>
                         </div>

@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
+use App\Traits\uploadFile;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
-    #use Common;
+    use uploadFile;
 
 ###))) public pages
 

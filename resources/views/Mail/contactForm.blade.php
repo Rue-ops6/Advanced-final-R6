@@ -13,5 +13,5 @@
 
 
         {{-- Sections --}}
-        @include('public.includes.sections.mailing')
+        @include('Mail.sections.contactus')
     @endsection

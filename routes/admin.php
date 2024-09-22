@@ -84,14 +84,14 @@ Route::group([
     Route::put('{id}', 'update')->name('update');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
-//Messages/contactus
+//Messages/contactus/mailing
 Route::group([
     'prefix' => 'admin/messages', #for the uri
     'controller' => ContactController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'messages.', #for the name
     'middleware' => 'verified',
 ], function () {
-    Route::get('/', 'contactus')->name('list');
+    Route::get('/', 'messages')->name('list');
     Route::get('/details/{id}', 'show')->name('details');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
