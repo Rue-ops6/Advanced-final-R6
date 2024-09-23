@@ -56,7 +56,17 @@ class LoginController extends Controller
      * it's taking email as username from     use AuthenticatesUsers;  as we can't motivie in vendor
      * @return array
      */
-    public function credentials(Request $request)
+        /**
+     * Get the username field used for authentication.
+     *This is enough no overwrite credentials needed
+     * @return string
+     */
+    public function username()
+    {
+        return 'UserName';
+    }
+
+    /*public function credentials(Request $request)
     {
         $login = $request->input('UserName');
         // Determine if the input is an email address or a username
@@ -75,7 +85,7 @@ class LoginController extends Controller
             'password' => $request->input('password'),
             //'email_verified_at' => ['!=', 'null'], // Ensure the role is not 'guest'
         ];
-    }
+    }*/
     /*} else {
     // Assume the input is a username
     return [
@@ -85,18 +95,8 @@ class LoginController extends Controller
     ];
     }*/
 
-    //or remove it
-        /**
-     * Get the username field used for authentication.
-     *
-     * @return string
-     */
-    public function username()
-    {
-        return 'UserName';
-    }
 
-        /** or remove it     *
+        /** or remove it?     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */

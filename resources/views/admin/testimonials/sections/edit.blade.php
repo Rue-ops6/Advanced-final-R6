@@ -15,7 +15,7 @@
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Content:</label>
         <div class="col-md-10">
-            <textarea name="" id="" rows="5" class="form-control" name="content">{{ old('content', $test->content) }}</textarea>
+            <textarea id="" rows="5" class="form-control" name="content">{{ old('content', $test->content) }}</textarea>
             @error('content')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror
@@ -34,8 +34,7 @@
         <div class="col-md-10">
             <input type="file" class="form-control" style="padding: 0.7rem; margin-bottom: 10px;"
                 value="{{ old('image', $test->image) }}" name="image" />
-            <img src="assests/images/testimonials/rocky-xiong-UE04nFCgDUE-unsplash.jpg" alt=""
-                style="width: 10rem;">
+            <img src="{{ asset('assets/admin/images/testimonials/' . $test->image) }}" alt="" style="width: 30rem;">
             @error('image')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror

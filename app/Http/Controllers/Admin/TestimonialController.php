@@ -11,19 +11,9 @@ class TestimonialController extends Controller
 {
     use uploadFile;
 
-###))) public pages
-
-    /**
-    1)  Display a listing of the resource.
+        /*    #1)
+     * testimonials' admin-index
      */
-    public function allTestimonials()
-    {
-
-        return view('public.testimonials');
-    }
-
-###))) public pages
-
     public function testimonials()
     {
         /* get all testimonials from db '

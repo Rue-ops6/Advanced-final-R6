@@ -24,8 +24,8 @@ class CategoryController extends Controller
     public function create()
     {
         #DB relation
-        // $category = Category::select('id', 'category')->get();
-        return view('admin.categories.add_category'); //, compact('category')
+        $category = Category::get();
+        return view('admin.categories.add_category', compact('category'));
     }
 
     /*    #3)
@@ -35,7 +35,7 @@ class CategoryController extends Controller
     {
         #dd($request);
         $data = $request->validate([
-            'category' => "required|string|unique:categories,category",
+            'catName' => "required|string|unique:categories,catName",
         ]); #,$message);
         #dd($data);
         Category::create($data);
@@ -69,7 +69,7 @@ class CategoryController extends Controller
     { //dd($request,$id);
         #validation:
         $data = $request->validate([
-            'category' => "required|string|unique:categories,category,$id",
+            'catName' => "required|string|unique:categories,catName,$id",
         ]); #,$message);
         #Category::create($data);
         Category::where('id', $id)->update($data);

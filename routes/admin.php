@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\TopicController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\RelationController;
+use App\Http\Controllers\Admin\RelationsController;
 //use App\Http\Controllers\Admin\MessageController;
 
 use App\Http\Controllers\Admin\ImageController;
@@ -26,7 +26,7 @@ use App\Models\Testimonial;
 ##) Admin dashboard
 //Users
 Route::group([
-    'prefix' => 'admin/users', #for the uri
+    'prefix' => '/admin/users', #for the uri
     'controller' => UserController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'users.', #for the name
     'middleware' => 'verified',
@@ -40,7 +40,7 @@ Route::group([
 });
 //Topics
 Route::group([
-    'prefix' => 'admin/topics', #for the uri
+    'prefix' => '/admin/topics', #for the uri
     'controller' => TopicController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'topics.', #for the name
     'middleware' => 'verified',
@@ -53,12 +53,12 @@ Route::group([
     Route::put('{id}', 'update')->name('update');
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
-#<!------DB relations-------¡>
-Route::get('1/many', [RelationController::class, 'DBrelations'])->name('1toM')->middleware('verified');
+#<!------DB relations -- not needed only trait is enough-------¡>
+// Route::get('1/many', [RelationsController::class, 'DBrelations'])->name('1toM')->middleware('verified');
 
 //Categories
 Route::group([
-    'prefix' => 'admin/categories', #for the uri
+    'prefix' => '/admin/categories', #for the uri
     'controller' => CategoryController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'categories.', #for the name
     'middleware' => 'verified',
@@ -72,7 +72,7 @@ Route::group([
 });
 //Testimonials
 Route::group([
-    'prefix' => 'admin/testimonials', #for the uri
+    'prefix' => '/admin/testimonials', #for the uri
     'controller' => TestimonialController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'testimonials.', #for the name
     'middleware' => 'verified',
@@ -86,7 +86,7 @@ Route::group([
 });
 //Messages/contactus/mailing
 Route::group([
-    'prefix' => 'admin/messages', #for the uri
+    'prefix' => '/admin/messages', #for the uri
     'controller' => ContactController::class, #then we'll del the [] from the pages that open in browser
     'as' => 'messages.', #for the name
     'middleware' => 'verified',
@@ -96,23 +96,11 @@ Route::group([
     Route::delete('/{id}', 'force_delete')->name('destroy');
 });
 
-//uploadFile (e.g. image)
-Route::post('upload/files', [ImageController::class, 'uploadFile'])->name('uploadFile')->middleware('verified');
+//uploadFile (e.g. image) not needed only trait is enough
+// Route::post('upload/files', [ImageController::class, 'uploadFile'])->name('uploadFile')->middleware('verified');
 #Route::post(uri: 'assets', [ImageController::class, 'uploadimg'])->name('uploadimg')->middleware('verified');
 
 
-
- //Registration
- Route::get('register', [RegisterController::class, 'register'])->name('register');
- // Route::get('/login', function () {
- //     return view('login');
- // })->name('login');
- // Route::post('/logged', function () {
- //  return view(view: 'home');
- // })->name('logged');
- Route::get('login', [LoginController::class, 'showLoginForm'])->name('login'); // Show the login form
- Route::post('logged', [LoginController::class, 'login'])->name('logged'); // Handle the login form submission
- Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 ##) authentication
 Auth::routes(['verify' => true]);

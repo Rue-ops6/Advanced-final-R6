@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id(); // Primary key
-            $table->string('category', 60)->unique()
+            $table->string('catName', 60)->unique()
             //Delete all related topics
                   ->on('categories')
                   ->references('id')

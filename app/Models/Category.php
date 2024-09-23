@@ -9,9 +9,10 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'category',
+        'catName',
     ];
 
+#<!------category is the PARENT = has many topics-------¡>
     public function topics()
     {
         return $this->hasMany(Topic::class, 'catID');

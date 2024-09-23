@@ -1,5 +1,5 @@
 <?php
-
+// In Category/ topic's model/controller/migration replace it
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use App\Models\Topic;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 
-class RelationController extends Controller
+class RelationsController extends Controller
 {
     public function DBrelations()
     {

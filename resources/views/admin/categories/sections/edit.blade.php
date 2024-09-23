@@ -6,8 +6,8 @@
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Category Name:</label>
         <div class="col-md-10">
             <input type="text" placeholder="e.g. ECTD" class="form-control py-2"
-                value="{{ old('category', $category->category) }}" name="category" />
-            @error('category')
+                value="{{ old('catName', $category->catName) }}" name="catName" />
+            @error('catName')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror
         </div>

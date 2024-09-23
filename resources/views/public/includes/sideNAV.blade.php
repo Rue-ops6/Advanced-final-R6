@@ -32,13 +32,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('listings') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('listings') || request()->routeIs('details') || request()->routeIs('listings') ? 'active' : '' }}"
                         href="{{ route('listings') }}">Topics' Listing</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('details') ? 'active' : '' }}"
-                        href="{{ route('details') }}">Topics' Details</a>
                 </li>
             </ul>
 

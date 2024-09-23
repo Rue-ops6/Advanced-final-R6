@@ -22,7 +22,7 @@ class TopicController extends Controller
         select * from topics = Topic::get();*/
         $topics = Topic::get();
         $category = Category::find(1);
-        $trendings = Topic::orderBy('views', 'desc')->take(2)->get();
+        $trendings = Topic::orderBy('views', 'desc')->where('published', 1)->take(2)->get();
         return view('admin.topics.topics', compact('topics', 'trendings', 'category'));
     }
 
@@ -32,7 +32,7 @@ class TopicController extends Controller
     public function create()
     {
         #DB relation
-        $category = Category::select('id', 'category')->get();
+        $category = Category::select('id', 'catName')->get();
         return view('admin.topics.add_topic', compact('category'));
     }
 
@@ -87,7 +87,7 @@ class TopicController extends Controller
     public function edit(string $id)
     {
         $topic = Topic::findOrFail($id);
-        $category = Category::select('id', 'category')->get();
+        $category = Category::select('id', 'catName')->get();
         //dd($topics->all());
         #return "topics = " . $id;
         return view('admin.topics.edit_topic', compact('topic', 'category'));

@@ -7,63 +7,24 @@
         </div>
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row mx-md-5">
-                        <div class="col-md-4 testimonials">
-                            <img class="d-block rounded-3"
-                                src="{{ asset('assets/public/images/testimonials/janis-dzenis-jkvE9uJN3jk-unsplash.jpg') }}"
-                                alt="First slide">
-                        </div>
-                        <div class="col-md-8 px-md-5 d-flex flex-column justify-content-center">
-                            <h3>Jone Due<br><strong class="date">12/02/2019</strong></h3>
-                            <p class="text-muted">You guys rock! Thank you for making it painless, pleasant and most of
-                                all hassle
-                                free! I wish I would have thought of it first.
-                                <br>
-                                You guys rock! Thank you for making it painless, pleasant and most of all hassle
-                                free! I wish I would have thought of it first.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row mx-md-5">
-                        <div class="col-md-4 testimonials">
-                            <img class="d-block rounded-3"
-                                src="{{ asset('assets/public/images/testimonials/janis-dzenis-oPRubjbiqKI-unsplash.jpg') }}"
-                                alt="First slide">
-                        </div>
-                        <div class="col-md-8 px-md-5 d-flex flex-column justify-content-center">
-                            <h3>Jone Due<br><strong class="date">12/02/2019</strong></h3>
-                            <p class="text-muted">You guys rock! Thank you for making it painless, pleasant and most of
-                                all hassle
-                                free! I wish I would have thought of it first.
-                                <br>
-                                You guys rock! Thank you for making it painless, pleasant and most of all hassle
-                                free! I wish I would have thought of it first.
-                            </p>
+                @foreach ($testimonials as $test)
+                    <div class="carousel-item @if ($loop->first) active @endif"> {{-- {{$loop->first? 'active' : ''}}" --}}
+                        <div class="row mx-md-5">
+                            <div class="col-md-4 testimonials">
+                                <img class="d-block rounded-3"
+                                    src="{{ asset('assets/admin/images/testimonials/' . $test->image) }}"
+                                    alt="First slide">
+                            </div>
+                            <div class="col-md-8 px-md-5 d-flex flex-column justify-content-center">
+                                <h3>{{ $test['name'] }}<br><strong
+                                        class="date">{{ date('d M Y', strtotime($test['updated_at'])) }}</strong></h3>
+                                <p class="text-muted">
+                                    {{ $test['content'] }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row mx-md-5">
-                        <div class="col-md-4 testimonials">
-                            <img class="d-block rounded-3"
-                                src="{{ asset('assets/public/images/testimonials/rocky-xiong-UE04nFCgDUE-unsplash.jpg') }}"
-                                alt="First slide">
-                        </div>
-                        <div class="col-md-8 px-md-5 d-flex flex-column justify-content-center">
-                            <h3>Jone Due<br><strong class="date">12/02/2019</strong></h3>
-                            <p class="text-muted">You guys rock! Thank you for making it painless, pleasant and most of
-                                all hassle
-                                free! I wish I would have thought of it first.
-                                <br>
-                                You guys rock! Thank you for making it painless, pleasant and most of all hassle
-                                free! I wish I would have thought of it first.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

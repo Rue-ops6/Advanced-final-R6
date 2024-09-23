@@ -17,7 +17,7 @@
             <select name="catID" id="" class="form-control py-1">
                 <option value="">Select category</option>
                 @foreach ($category as $cat)
-                    <option value="{{ $cat->id }}" @selected(old('catID') == $cat->id)>{{ $cat->category }}</option>
+                    <option value="{{ $cat->id }}" @selected(old('catID') == $cat->id)>{{ $cat->catName }}</option>
                 @endforeach
             </select>
             @error('catID')
@@ -28,7 +28,7 @@
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Content:</label>
         <div class="col-md-10">
-            <textarea name="" id="" rows="5" class="form-control" name="content">{{ old('content') }}</textarea>
+            <textarea id="" rows="5" class="form-control" name="content">{{ old('content') }}</textarea>
             @error('content')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror
