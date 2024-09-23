@@ -21,7 +21,7 @@
                     <td><a class="text-decoration-none text-dark"
                             href="{{ route('topics.details', $topic['id']) }}">{{ $topic['topicTitle'] }}</a>
                     </td>
-                    <td>{{ $topic->category->catName }}</td>  {{-- show topic id --in relation "category"-- with category name --}}
+                    <td>{{ $topic->category->catName }}</td> {{-- show topic id --in relation "category"-- with category name --}}
                     <td>{{ Str::limit($topic['content'], 44, $end = ' ...') }}</td>
                     <td>{{ $topic['views'] }}</td>
                     <td>{{ $topic['published'] == 1 ? 'yes' : 'no' }}</td>

@@ -13,7 +13,7 @@
 
 
         {{-- Sections --}}
-        @include('public.includes.sections.listings')
+        @include('public.sections.listings')
         {{-- <section class="section-padding section-bg">
             <div class="container">
                 <div class="row">
@@ -22,10 +22,9 @@
                         <h3 class="mb-4">Trending Topics</h3>
                     </div>
         @include('public.includes.sections.trendings') --}}
-        @include('public.includes.sections.topTopics')
+        @include('public.sections.topTopics')
 
-    </div>
-</div>
-</section>
-
+        </div>
+        </div>
+        </section>
     @endsection

@@ -37,8 +37,9 @@
                                             alt="">
                                     </a>
                                     <a href="{{ route('topics.list') }}">
-                                    <img src="{{ asset('assets/admin/images/rear-view-young-college-student.jpg') }}"
-                                        alt="" class="img-fluid" styleifdsa="max-width: 450px; max-height: 450px;">
+                                        <img src="{{ asset('assets/admin/images/rear-view-young-college-student.jpg') }}"
+                                            alt="" class="img-fluid"
+                                            styleifdsa="max-width: 450px; max-height: 450px;">
                                     </a>
                                 </div>
                             </div>

@@ -7,6 +7,6 @@
         @include('public.includes.sideNAV')
 
         {{-- Sections --}}
-        @include('public.includes.sections.details')
+        @include('public.sections.details')
         @include('Mail.topics-details.NewsQuoting')
     @endsection

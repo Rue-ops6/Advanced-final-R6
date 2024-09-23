@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id(); // Primary key
             $table->string('catName', 60)->unique()
             //Delete all related topics
-                  ->on('categories')
-                  ->references('id')
-                  ->onDelete('cascade');
+                ->on('categories')
+                ->references('id')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

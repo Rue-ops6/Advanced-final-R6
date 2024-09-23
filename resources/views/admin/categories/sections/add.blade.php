@@ -4,11 +4,12 @@
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Category Name:</label>
         <div class="col-md-10">
-            <input type="text" placeholder="e.g. ECTD" class="form-control py-2" value="{{ old('catName') }}" name="catName" required/>
+            <input type="text" placeholder="e.g. ECTD" class="form-control py-2" value="{{ old('catName') }}"
+                name="catName" required />
             @error('catName')
-            <div class="alert alert-warning">{{ $message }}</div>
-        @enderror
-    </div>
+                <div class="alert alert-warning">{{ $message }}</div>
+            @enderror
+        </div>
     </div>
     <div class="text-md-end">
         <button class="btn mt-4 btn-secondary text-white fs-5 fw-bold border-0 py-2 px-md-5">

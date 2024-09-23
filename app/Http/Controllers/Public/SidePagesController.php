@@ -11,7 +11,7 @@ use App\Traits\incrementViews;
 
 class SidePagesController extends Controller
 {
-use incrementViews;
+    use incrementViews;
     /**
     2) SidePage
      */
@@ -24,7 +24,7 @@ use incrementViews;
     public function listings()
     {
         #<!------AllTopics section section-------¡>
-        $topics = Topic::paginate(5);  #pages numbering/pagination  #5 is for 5 topics each page
+        $topics = Topic::paginate(3); #pages numbering/pagination  #3 is for 3 topics each page
 
         #<!------Trendings section section-------¡>
         $trendings = Topic::orderBy('views', 'desc')->where('published', 1)->take(2)->get();

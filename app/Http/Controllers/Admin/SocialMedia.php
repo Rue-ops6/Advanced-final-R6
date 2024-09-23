@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\hash;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialMedia extends Controller
@@ -19,7 +17,7 @@ class SocialMedia extends Controller
     }
     public function callback()
     {
-        $githubUser = Socialite::driver('github')->stateless()->user();  //stateless is not erroring
+        $githubUser = Socialite::driver('github')->stateless()->user(); //stateless is not erroring
 //dd($githubUser);
 
         $user = User::updateOrCreate([

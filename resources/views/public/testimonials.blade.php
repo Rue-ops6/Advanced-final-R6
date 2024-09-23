@@ -13,5 +13,5 @@
 
 
         {{-- Sections --}}
-        @include('public.includes.sections.testimonials')
+        @include('public.sections.testimonials')
     @endsection

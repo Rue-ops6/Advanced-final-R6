@@ -19,7 +19,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'LastName' => ['string', 'max:55'],
             'UserName' => ['required', 'string', 'max:155'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'], #confirmed do a password_confirmation in html
+            'password' => ['required', 'string', 'min:8', 'confirmed'], #confirmed do a password_confirmation in html, thus it requires 2 inputs
         ]);
     }
 

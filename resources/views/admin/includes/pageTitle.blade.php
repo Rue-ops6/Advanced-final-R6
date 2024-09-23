@@ -3,7 +3,7 @@
     <a @stack('newElement') class="btn btn-link  link-dark fw-semibold col-auto me-3">➕Add More
         @stack('pageTitle')</a>
 </div>
-    {{-- <div class="dt-layout-row">
+{{-- <div class="dt-layout-row">
             <div class="dt-layout-cell dt-layout-start">
             <div class="dt-length">
             <select name="_table_length" aria-controls="_table" class="dt-input" id="dt-length-0">

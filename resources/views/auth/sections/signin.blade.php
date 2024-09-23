@@ -55,7 +55,7 @@
 
         {{-- sociallogin --}}
         <div class="row mb-3">
-            <a href="{{route('sociallogin')}}" >Login with Github</a>
+            <a href="{{ route('sociallogin') }}">Login with Github</a>
         </div>
     </form>
 </div>
