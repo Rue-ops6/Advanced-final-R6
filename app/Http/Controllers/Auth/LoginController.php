@@ -33,10 +33,10 @@ class LoginController extends Controller
      * */
     /*public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+    $this->middleware('guest')->except('logout');
     }*/
 
-        /**
+    /**
      * Validate the user login request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -56,7 +56,7 @@ class LoginController extends Controller
      * it's taking email as username from     use AuthenticatesUsers;  as we can't motivie in vendor
      * @return array
      */
-        /**
+    /**
      * Get the username field used for authentication.
      *This is enough no overwrite credentials needed
      * @return string
@@ -68,23 +68,23 @@ class LoginController extends Controller
 
     /*public function credentials(Request $request)
     {
-        $login = $request->input('UserName');
-        // Determine if the input is an email address or a username
-        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'UserName';
+    $login = $request->input('UserName');
+    // Determine if the input is an email address or a username
+    $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'UserName';
 
-        if (!$login) {
-            return redirect()->back()->withErrors(['login' => 'Please enter a valid email or username']);
-        }
+    if (!$login) {
+    return redirect()->back()->withErrors(['login' => 'Please enter a valid email or username']);
+    }
 
-        if (!filter_var($login, FILTER_VALIDATE_EMAIL) && !preg_match('/^[a-zA-Z0-9]+$/', $login)) {
-            return redirect()->back()->withErrors(['login' => 'Please enter a valid email or username']);
-        }
+    if (!filter_var($login, FILTER_VALIDATE_EMAIL) && !preg_match('/^[a-zA-Z0-9]+$/', $login)) {
+    return redirect()->back()->withErrors(['login' => 'Please enter a valid email or username']);
+    }
 
-        return [ // Return the credentials array
-            $field => $login,
-            'password' => $request->input('password'),
-            //'email_verified_at' => ['!=', 'null'], // Ensure the role is not 'guest'
-        ];
+    return [ // Return the credentials array
+    $field => $login,
+    'password' => $request->input('password'),
+    //'email_verified_at' => ['!=', 'null'], // Ensure the role is not 'guest'
+    ];
     }*/
     /*} else {
     // Assume the input is a username
@@ -95,8 +95,7 @@ class LoginController extends Controller
     ];
     }*/
 
-
-        /** or remove it?     *
+    /** or remove it?     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -112,7 +111,7 @@ class LoginController extends Controller
      * Create a new controller instance.
      *
      * @return void
-*/
+     */
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

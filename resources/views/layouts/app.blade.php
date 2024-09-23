@@ -77,12 +77,12 @@
                                     </form>
                                 </div>
                             </li>
-                        <!-- Admin Links ---- can be removed-->
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users.list') }}">{{ __('Admin Dashboard') }}</a>
-                            </li>
-                        @endauth
+                            <!-- Admin Links ---- can be removed-->
+                            @auth
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('users.list') }}">{{ __('Admin Dashboard') }}</a>
+                                </li>
+                            @endauth
                         @endguest
                         @can('admin')
                             <li class="nav-item">

@@ -35,9 +35,9 @@
                 @endforeach
             </div>
 
-    {{-- This will display the pagination controls, for page numbering --}}
+            {{-- This will display the pagination controls, for page numbering --}}
             <div class="col-lg-12 col-12">
-                    {{ $topics->links() }}
+                {{ $topics->links() }}
                 {{-- <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center mb-0">
                         @if ($topic->onFirstPage())

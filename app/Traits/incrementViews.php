@@ -14,4 +14,5 @@ trait incrementViews
         $topic->save();
 
         return redirect()->back();
-    }}
+    }
+}

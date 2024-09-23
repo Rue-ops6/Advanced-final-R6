@@ -58,7 +58,8 @@
             <div class="col-12 text-center mt-5">
                 <p class="text-white">
                     Want to learn more?
-                    <a href="https://vimeo.com/video/1000263183" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
+                    <a href="https://vimeo.com/video/1000263183" class="btn custom-btn custom-border-btn ms-3">Check out
+                        Youtube</a>
                 </p>
             </div>
         </div>

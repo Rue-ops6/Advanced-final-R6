@@ -11,7 +11,7 @@ class TestimonialController extends Controller
 {
     use uploadFile;
 
-        /*    #1)
+    /*    #1)
      * testimonials' admin-index
      */
     public function testimonials()

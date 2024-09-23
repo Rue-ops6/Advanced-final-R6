@@ -41,8 +41,9 @@
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Password:</label>
         <div class="col-md-10">
-            <input type="password" placeholder="Password" class="form-control py-2" value="{{ old('password') }}"
-                name="password" />
+            <input type="password" placeholder="Password" class="form-control py-2" name="password" />
+            {{-- we don't do it to password as it's coming hashed from DB neither the pwd_confirmation --}}
+
             @error('password')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror

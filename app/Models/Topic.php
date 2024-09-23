@@ -19,7 +19,7 @@ class Topic extends Model
 
     #<!------Topics are the CHILD = belongs to categories-------¡>
     public function category()
-        {         #<!------function "CATEGORY" ===  relation name-------¡>
+    { #<!------function "CATEGORY" ===  relation name when $topic calls table cat-------¡>
         return $this->belongsTo(Category::class, 'catID');
     }
 }

@@ -11,7 +11,7 @@ use App\Traits\incrementViews;
 
 class IndexController extends Controller
 {
-    use incrementViews;  #Traits are for when you want to use the same function multitimes but don't want to repeat routes or controllers
+    use incrementViews; #Traits are for when you want to use the same function multitimes but don't want to repeat routes or controllers
 
     /**Display a listing of the resource.
     1) HomePage
@@ -29,7 +29,7 @@ class IndexController extends Controller
     public function index()
     {
         #<!------Trendings section section-------¡>
-        $trendings = Topic::orderBy('views', 'desc')->where('published', 1)->take(2)->get();
+        $trendings = Topic::orderBy('views', 'desc')->where('published', 1)->take(2)->get(); #or we can combin more than one where
 
         #<!------topicsCategory section-------¡>
 

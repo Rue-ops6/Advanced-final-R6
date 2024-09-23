@@ -61,7 +61,7 @@ class ContactController extends Controller
             'email' => 'required|email',
         ]);
         // Check if the email exists in the users table
-        $user = User::where('email', $request->input('email'))->first();
+        $user = User::where('active', 1)->where('email', $request->input('email'))->first();
         if ($user) {
             // NewsletterSubscription::create(['email' => $request->input('subscribe-email')]);
             Mail::to($user['email'])->send(new QuotingMail);

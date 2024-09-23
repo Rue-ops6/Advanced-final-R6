@@ -5,7 +5,7 @@
                 <h2 class="fs-1 py-4">{{ $details['msgTitle'] }}</h2>
                 <p class="fw-bold"><small>From: {{ $details['name'] }}, {{ $details['email'] }}</small></p>
                 <p>
-                {{ $details['content'] }}
+                    {{ $details['content'] }}
                 </p>
 
                 <div class="text-md-end">

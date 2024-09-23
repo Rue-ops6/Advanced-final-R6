@@ -6,10 +6,10 @@
     @include('public.includes.searchbar')
 
     {{-- Sections --}}
-    @include('public.includes.sections.trendings')
-    @include('public.includes.sections.topicsCategory')
-    @include('public.includes.sections.about')
-    @include('public.includes.sections.FAQs')
-    @include('public.includes.sections.testimonials')
-    @include('public.includes.sections.contact')
+    @include('public.sections.trendings')
+    @include('public.sections.topicsCategory')
+    @include('public.sections.about')
+    @include('public.sections.FAQs')
+    @include('public.sections.testimonials')
+    @include('public.sections.contact')
 @endsection

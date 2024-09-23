@@ -22,7 +22,6 @@ use App\Http\Controllers\Admin\RelationsController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Models\Testimonial;
 
-
 ##) Admin dashboard
 //Users
 Route::group([
@@ -99,8 +98,6 @@ Route::group([
 //uploadFile (e.g. image) not needed only trait is enough
 // Route::post('upload/files', [ImageController::class, 'uploadFile'])->name('uploadFile')->middleware('verified');
 #Route::post(uri: 'assets', [ImageController::class, 'uploadimg'])->name('uploadimg')->middleware('verified');
-
-
 
 ##) authentication
 Auth::routes(['verify' => true]);
