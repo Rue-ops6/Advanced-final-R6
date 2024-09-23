@@ -17,7 +17,7 @@
         <div class="col-md-10">
             <select name="catID" id="" class="form-control py-1">
                 @foreach ($category as $cat)
-                    <option value="{{ $cat->id }}" @selected(old('catID', $topic->catID) == $cat->id)>{{ $cat->category }}</option>
+                    <option value="{{ $cat->id }}" @selected(old('catID', $topic->catID) == $cat->id)>{{ $cat->catName }}</option>
                 @endforeach
             </select>
             @error('catID')
@@ -28,7 +28,7 @@
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Content:</label>
         <div class="col-md-10">
-            <textarea name="" id="" rows="5" class="form-control" name="content">{{ old('content', $topic->content) }}</textarea>
+            <textarea id="" rows="5" class="form-control" name="content">{{ old('content', $topic->content) }}</textarea>
             @error('content')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror
@@ -52,10 +52,14 @@
     <div class="form-group mb-3 row">
         <label for="" class="form-label col-md-2 fw-bold text-md-end">Image:</label>
         <div class="col-md-10">
-            <input type="file" class="form-control" style="padding: 0.7rem; margin-bottom: 10px;"
-                value="{{ old('image', $topic->image) }}" name="image" />
-            <img src="assests/images/topics/colleagues-working-cozy-office-medium-shot.png" alt=""
-                style="width: 10rem;">
+            <input type="file" class="form-control" style="padding: 0.7rem; margin-bottom: 10px;" name="image" />
+            {{-- value="{{ old('image', $topic->image) }}" --}}
+            <img src="{{ asset('assets/admin/images/topics/' . $topic->image) }}" alt="" style="width: 400px;">
+            {{-- @if ($topic['image'])
+                 <div class="mb-3">
+                   <img src="{{ asset('assets/images/admin/topics/' . $topic['image']) }}" alt="" style="width: 10rem;">
+                 </div>
+               @endif --}}
             @error('image')
                 <div class="alert alert-warning">{{ $message }}</div>
             @enderror

@@ -14,5 +14,18 @@
 
         {{-- Sections --}}
         @include('public.includes.sections.listings')
+        {{-- <section class="section-padding section-bg">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <h3 class="mb-4">Trending Topics</h3>
+                    </div>
+        @include('public.includes.sections.trendings') --}}
         @include('public.includes.sections.topTopics')
+
+    </div>
+</div>
+</section>
+
     @endsection

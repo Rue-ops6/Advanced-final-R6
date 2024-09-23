@@ -92,7 +92,6 @@ class ContactController extends Controller
             //     $details->status = 1;
             //$details->save();
         }
-        $updatedDetails = Contact::findOrFail($id);
         // dd($details->status);
         // Return the details view with the message
         return view('Mail.messages.message_details', compact('details'));

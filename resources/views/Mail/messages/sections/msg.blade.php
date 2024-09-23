@@ -15,7 +15,7 @@
         <tbody>
             @foreach ($unreadMsg as $unread)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($unread['updated_at'])) }}</th>
+                    <th scope="row">{{ date('d M Y', strtotime($unread['created_at'])) }}</th>
                     <td><a href="{{ route('messages.details', $unread['id']) }}"
                             class="text-decoration-none text-dark">{{ Str::limit($unread['content'], 44, $end = ' ...') }}</a>
                     </td>

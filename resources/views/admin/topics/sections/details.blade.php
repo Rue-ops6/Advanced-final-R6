@@ -7,7 +7,7 @@
 <div class="p-5">
     <div class="container-fluid g-0 pt-3 pb-5 px-lg-5 px-md-3 px-1">
         <div class="img-wrapper">
-            <img src="{{ asset('assets/admin/images/topics/colleagues-working-cozy-office-medium-shot.png') }}"
+            <img src="{{ asset('assets/admin/images/topics/' . $details['image']) }}"
                 class="rounded image-center border-5 rounded-4" alt="DEI-header-img" />
         </div>
         <!-- article -->

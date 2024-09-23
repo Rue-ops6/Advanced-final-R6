@@ -17,8 +17,9 @@ class Topic extends Model
         'catID',
     ];
 
+    #<!------Topics are the CHILD = belongs to categories-------¡>
     public function category()
-    {
+        {         #<!------function "CATEGORY" ===  relation name-------¡>
         return $this->belongsTo(Category::class, 'catID');
     }
 }

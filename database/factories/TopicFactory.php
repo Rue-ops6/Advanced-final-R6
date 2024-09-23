@@ -24,7 +24,7 @@ class TopicFactory extends Factory
     public function definition(): array
     {
         return [
-            'topicTitle' => fake()->randomElement(['Methodology', 'Intangible crafts', 'UCH', 'underdogs|storries', 'Dark Heritage']),
+            'topicTitle' => fake()->randomElement(['Methodology', 'Intangible crafts', 'UCH', 'underdogs|storries', 'Dark Heritage', 'Queendom']),
             'content' => collect(fake()->paragraphs(5))->map(fn($p) => $p)->implode(' '), #For At Least 500 Characters
             'views' => fake()->numberBetween(1, 20),
             'published' => fake()->numberBetween(0, 1),

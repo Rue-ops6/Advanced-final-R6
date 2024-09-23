@@ -12,8 +12,8 @@
         <tbody>
             @foreach ($categories as $cat)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($cat['updated_at'])) }}</th>
-                    <td {{ $cat['id'] }}>{{ $cat->category }}</td>
+                    <th scope="row">{{ date('d M Y', strtotime($cat['created_at'])) }}</th>
+                    <td {{ $cat['id'] }}>{{ $cat->catName }}</td>
                     <td class="text-center"><a class="text-decoration-none text-dark"
                             href="{{ route('categories.edit', $cat['id']) }}"><img
                                 src="{{ asset('assets/admin/images/edit-svgrepo-com.svg') }}"></a></td>

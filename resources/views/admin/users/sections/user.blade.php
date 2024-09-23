@@ -15,7 +15,7 @@
         <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($user['updated_at'])) }}</th>
+                    <th scope="row">{{ date('d M Y', strtotime($user['created_at'])) }}</th>
                     <td>{{ $user['FirstName'] }} {{ $user['LastName'] }}</td>
                     <td>{{ $user['UserName'] }}</td>
                     <td>{{ $user['email'] }}</td>

@@ -49,7 +49,6 @@
                         <li><a class="dropdown-item" href="{{ route('contactus') }}">Contact Us</a></li>
                         <li><a class="dropdown-item" href="{{ route('allTestimonials') }}">Our Client Says</a></li>
                         <li><a class="dropdown-item" href="{{ route('listings') }}">Topics Listing</a></li>
-                        <li><a class="dropdown-item" href="{{ route('details') }}">Topics details</a></li>
                     </ul>
                 </li>
             </ul>
