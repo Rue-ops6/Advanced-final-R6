@@ -2,7 +2,7 @@
     <table class="table table-hover display" id="_table">
         <thead>
             <tr>
-                <th scope="col">Created At</th>
+                <th scope="col">Latest Modify</th>
                 <th scope="col">Title</th>
                 <th scope="col">Category</th>
                 <th scope="col">Content</th>
@@ -17,7 +17,7 @@
         <tbody>
             @foreach ($topics as $topic)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($topic['created_at'])) }}</th>
+                    <th scope="row">{{ date('d M Y', strtotime($topic['updated_at'])) }}</th>
                     <td><a class="text-decoration-none text-dark"
                             href="{{ route('topics.details', $topic['id']) }}">{{ $topic['topicTitle'] }}</a>
                     </td>

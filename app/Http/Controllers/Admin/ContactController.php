@@ -9,8 +9,6 @@ use App\Models\Contact;
 use App\Models\User;
 use App\Traits\uploadFile;
 use Illuminate\Http\Request;
-use App\Mail\OrderShipped;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -31,6 +29,7 @@ class ContactController extends Controller
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users,email',
             'msgTitle' => 'required|string|max:255',
+
             'content' => 'required|string',
         ]);
 
@@ -78,6 +77,7 @@ class ContactController extends Controller
         $unreadMsg = Contact::where('status', 0)->get();
         // Fetching read messages
         $readMsg = Contact::where('status', 1)->get();
+
         return view('Mail.messages.messages', compact('unreadMsg', 'readMsg'));
     }
 
@@ -90,10 +90,15 @@ class ContactController extends Controller
             $details->update(['status' => 1]);
             // if ($details->status === 0) {
             //     $details->status = 1;
-            //$details->save();
+            // $details->save();
+            // dd($details->status);
+            // }
+            if ($details->wasChanged('status')) {
+                return view('Mail.messages.message_details', compact('details'))->with('success', 'Message marked as read.');
+            } else {
+                return redirect()->back()->withErrors('Failed to mark the message as read.');
+            }
         }
-        // dd($details->status);
-        // Return the details view with the message
         return view('Mail.messages.message_details', compact('details'));
     }
 

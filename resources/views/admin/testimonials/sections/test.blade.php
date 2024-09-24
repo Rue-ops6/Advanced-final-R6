@@ -2,7 +2,7 @@
     <table class="table table-hover display" id="_table">
         <thead>
             <tr>
-                <th scope="col">Created At</th>
+                <th scope="col">Latest Modify</th>
                 <th scope="col">Name</th>
                 <th scope="col">Content</th>
                 <th scope="col">Published</th>
@@ -14,7 +14,7 @@
         <tbody>
             @foreach ($testimonials as $test)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($test['created_at'])) }}</th>
+                    <th scope="row">{{ date('d M Y', strtotime($test['updated_at'])) }}</th>
                     <td>{{ $test['name'] }}</td>
                     <td>{{ $test['content'] }}</td> {{-- there is no details to show the rest of the txt --}}
                     <td>{{ $test['published'] == 1 ? 'yes' : 'no' }}</td>

@@ -5,7 +5,7 @@
     <table class="table table-hover table-borderless display" id="_table">
         <thead>
             <tr>
-                <th scope="col">Created At</th>
+                <th scope="col">Latest Modify</th>
                 <th scope="col">Message</th>
                 <th scope="col">Sender</th>
                 <th scope="col">Delete</th>
@@ -15,7 +15,7 @@
         <tbody>
             @foreach ($unreadMsg as $unread)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($unread['created_at'])) }}</th>
+                    <th scope="row">{{ date('d M Y', strtotime($unread['updated_at'])) }}</th>
                     <td><a href="{{ route('messages.details', $unread['id']) }}"
                             class="text-decoration-none text-dark">{{ Str::limit($unread['content'], 44, $end = ' ...') }}</a>
                     </td>
@@ -28,14 +28,14 @@
                             <button type="submit" class="btn btn-link m-0 p-0"><img
                                     src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></button>
                         </form>
-                        </a>
+                        {{-- </a> --}}
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </div>
-</div>
+{{-- </div> --}}
 
 <hr>
 <div class="mx-2">
@@ -46,7 +46,7 @@
         <table class="table table-hover table-borderless display" id="_table2">
             <thead>
                 <tr>
-                    <th scope="col">Created At</th>
+                    <th scope="col">Latest Modify</th>
                     <th scope="col">Message</th>
                     <th scope="col">Sender</th>
                     <th scope="col">Delete</th>
@@ -69,7 +69,7 @@
                                 <button type="submit" class="btn btn-link m-0 p-0"><img
                                         src="{{ asset('assets/admin/images/trash-can-svgrepo-com.svg') }}"></button>
                             </form>
-                            </a>
+                            {{-- </a> --}}
                         </td>
                     </tr>
                 @endforeach
@@ -77,4 +77,4 @@
         </table>
     </div>
 </div>
-</div>
+{{-- </div> --}}

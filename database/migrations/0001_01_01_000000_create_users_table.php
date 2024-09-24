@@ -13,16 +13,23 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('FirstName');
-            $table->string('LastName');
+            $table->string('FirstName')->nullable(); #+any thing that ain't in my DB name or email and ain't in social media regsteration like the phone number do it "NULLable= can be null"
+            $table->string('LastName')->nullable();
             $table->string('UserName')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable(); #nullable = can be null
             $table->string('password');
+            $table->boolean('active')->default(1); #0= thier session has expired
+            #social login, their names coming from services in config
+            $table->string('google_id')->nullable();
+            $table->string('google_token')->nullable();
+            $table->string('google_refresh_token')->nullable();
             $table->string('github_id')->nullable();
             $table->string('github_token')->nullable();
             $table->string('github_refresh_token')->nullable();
-            $table->boolean('active')->default(1); #0= thier session has expired
+            $table->string('linkedin-openid_id')->nullable();
+            $table->string('linkedin-openid_token')->nullable();
+            $table->string('linkedin-openid_refresh_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

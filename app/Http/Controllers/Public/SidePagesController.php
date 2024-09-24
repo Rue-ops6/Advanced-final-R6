@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Topic;
 use App\Models\Testimonial;
-use Illuminate\Http\Request;
+use App\Models\Topic;
 use App\Traits\incrementViews;
+use Illuminate\Http\Request;
 
 class SidePagesController extends Controller
 {
@@ -21,11 +21,12 @@ class SidePagesController extends Controller
         return view('public.testimonials', compact('testimonials'));
     }
 
-    public function listings()
+    public function listings(Request $request)
     {
         #<!------AllTopics section section-------¡>
-        $topics = Topic::paginate(3); #pages numbering/pagination  #3 is for 3 topics each page
-
+        $currentPage = $request->input('page', 1);
+        $topics = Topic::where('published', 1)->paginate(3); #pages numbering/pagination  #3 is for 3 topics each page
+        // dd($topics);
         #<!------Trendings section section-------¡>
         $trendings = Topic::orderBy('views', 'desc')->where('published', 1)->take(2)->get();
 

@@ -38,6 +38,17 @@
                             <div class="row">
                                 {{-- in reverse $cat calling thru relation "topics in its model" the topic table --}}
                                 @foreach ($cat->topics as $topic)
+                                    {{-- Dynamic Column Widths layout depending on number of topics on how many topics included --}}
+                                    @if ($cat->topics->count() == 1)
+                                        <!-- Full width if 1 topic -->
+                                        <div class="col-12 mb-4">
+                                        @elseif ($cat->topics->count() == 2)
+                                            <!-- Half width if 2 topics -->
+                                            <div class="col-lg-6 col-12 mb-4">
+                                            @else
+                                                <!-- One-third width if 3 or more topics -->
+                                                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                                    @endif
                                     <div class="custom-block bg-white shadow-lg">
                                         <a href="{{ route('details', $topic['id']) }}">
                                             <div class="d-flex">

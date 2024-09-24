@@ -37,11 +37,30 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login'); /
 Route::post('logged', [LoginController::class, 'login'])->name('logged'); // Handle the login form submission  */
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 #<!------Socialmedia login-------¡>
-Route::get('/auth/github/redirect', [SocialMedia::class, 'redirect'])->name('sociallogin');
-Route::get('/auth/github/callback', [SocialMedia::class, 'callback'])->name('callback');
+Route::group([
+    'prefix' => '/auth/redirect', #for the uri
+    'controller' => SocialMedia::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'redirect.', #for the name
+    'middleware' => 'verified',
+], function () {
+    Route::get('/google', 'Googleredirect')->name('google');
+    Route::get('/github', 'Gitredirect')->name('git');
+    Route::get('/linkedin', 'Linkedredirect')->name('linked');
+});
+Route::group([
+    'prefix' => '/auth/callback', #for the uri
+    'controller' => SocialMedia::class, #then we'll del the [] from the pages that open in browser
+    'as' => 'callback.', #for the name
+    'middleware' => 'verified',
+], function () {
+    Route::get('/google', 'Googlecallback')->name('google');
+    Route::get('/github', 'Gitcallback')->name('git');
+    Route::get('/linkedin', 'Linkedcallback')->name('linked');
+});
 
 #<!------Public dashboard-------¡>
 Route::get('/index', [IndexController::class, 'index'])->name('index');
+Route::get('/search', [IndexController::class, 'search'])->name('search');
 Route::post('index/trendings/{id}', [IndexController::class, 'trendings'])->name('trendings');
 Route::get('/topics/listings', [SidePagesController::class, 'listings'])->name('listings');
 Route::get('/all/testimonials', [SidePagesController::class, 'allTestimonials'])->name('allTestimonials');

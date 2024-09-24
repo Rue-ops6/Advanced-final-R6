@@ -7,6 +7,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Homepage</a></li>
 
+                        {{-- <h2>Search Results for "{{ $keyword }}"</h2> --}}
                         <li class="breadcrumb-item active" aria-current="page">{{ $details->category->catName }}</li>
                         {{-- $topic's making use of the relation "category" to get the category's name --}}
                     </ol>
@@ -47,7 +48,6 @@
 
                 <p>{{ $details['content'] }}</p>
             </div>
-
         </div>
     </div>
 </section>

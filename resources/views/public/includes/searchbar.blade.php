@@ -7,11 +7,10 @@
 
                 <h6 class="text-center">platform for creatives around the world</h6>
 
-                <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                <form action="{{ route('search') }}" method="GET" class="custom-form mt-4 pt-2 mb-lg-0 mb-5"
+                    role="search">
                     <div class="input-group input-group-lg">
-                        <span class="input-group-text bi-search" id="basic-addon1">
-
-                        </span>
+                        <span class="input-group-text bi-search" id="basic-addon1"></span>
 
                         <input name="keyword" type="search" class="form-control" id="keyword"
                             placeholder="Design, Code, Marketing, Finance ..." aria-label="Search">
