@@ -6,23 +6,23 @@
                 <h3 class="mb-4">Trending Topics</h3>
             </div>
 
-            @foreach ($trendings as $trend)
+            @foreach ($trendings as $trends)
                 <div class="col-lg-6 col-md-6 col-12 mt-lg-3">
                     <div class="custom-block custom-block-overlay">
                         <div class="d-flex flex-column h-100">
-                            <img src="{{ asset('assets/admin/images/topics/' . $trend->image) }}"
+                            <img src="{{ asset('assets/admin/images/topics/' . $trends->image) }}"
                                 class="custom-block-image img-fluid" alt="">
 
                             <div class="custom-block-overlay-text d-flex">
                                 <div>
-                                    <h5 class="text-white mb-2">{{ Str::limit($trend['content'], 44, $end = ' ...') }}
+                                    <h5 class="text-white mb-2">{{ Str::limit($trends['content'], 44, $end = ' ...') }}
                                     </h5>
 
-                                    <a href="{{ route('details', $trend['id']) }}"
+                                    <a href="{{ route('details', $trends['id']) }}"
                                         class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                 </div>
 
-                                <span class="badge bg-finance rounded-pill ms-auto">{{ $trend->views }}</span>
+                                <span class="badge bg-finance rounded-pill ms-auto">{{ $trends->views }}</span>
                             </div>
 
                             <div class="social-share d-flex">
@@ -42,7 +42,7 @@
                                     </li>
                                 </ul>
 
-                                <form action="{{ route('trendings', $trend['id']) }}" method="POST">
+                                <form action="{{ route('trendings', $trends['id']) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="custom-icon bi-bookmark ms-auto"></button>
                                 </form>

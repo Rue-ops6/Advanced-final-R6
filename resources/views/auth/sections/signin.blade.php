@@ -55,7 +55,9 @@
 
         {{-- sociallogin --}}
         <div class="row mb-3">
-            <a href="{{ route('sociallogin') }}">Login with Github</a>
+            <a href="{{ route('redirect.google') }}">Login with Google</a>
+            <a href="{{ route('redirect.git') }}">Login with Github</a>
+            <a href="{{ route('redirect.linked') }}">Login with LinkedIn</a>
         </div>
     </form>
 </div>

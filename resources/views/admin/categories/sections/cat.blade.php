@@ -2,7 +2,8 @@
     <table class="table table-hover display" id="_table">
         <thead>
             <tr>
-                <th scope="col">Created At</th>
+                <th scope="col">Latest Modify</th>
+                </th>
                 <th scope="col">Category</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -12,7 +13,7 @@
         <tbody>
             @foreach ($categories as $cat)
                 <tr>
-                    <th scope="row">{{ date('d M Y', strtotime($cat['created_at'])) }}</th>
+                    <th scope="row">{{ date('d M Y', strtotime($cat['updated_at'])) }}</th>
                     <td {{ $cat['id'] }}>{{ $cat->catName }}</td>
                     <td class="text-center"><a class="text-decoration-none text-dark"
                             href="{{ route('categories.edit', $cat['id']) }}"><img

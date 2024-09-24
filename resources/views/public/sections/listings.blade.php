@@ -4,6 +4,7 @@
 
             <div class="col-lg-12 col-12 text-center">
                 <h3 class="mb-4">Popular Topics</h3>
+                {{-- / Search Results for "{{ $keyword }}" search result part --}}
             </div>
 
             <div class="col-lg-8 col-12 mt-3 mx-auto">
@@ -37,43 +38,47 @@
 
             {{-- This will display the pagination controls, for page numbering --}}
             <div class="col-lg-12 col-12">
-                {{ $topics->links() }}
-                {{-- <nav aria-label="Page navigation example">
+                {{-- {{ $topics->links() }} --}}
+                <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center mb-0">
-                        @if ($topic->onFirstPage())
+                        {{-- Check if we're on the first page --}}
+                        @if ($topics->onFirstPage())
                             <li class="page-item disabled">
-                                <span class="page-link" aria-hidden="true">Prev</span>
+                                <span class="page-link" aria-hidden="true">First</span>
                             </li>
                         @else
                             <li class="page-item">
-                                <a class="page-link" href="{{ $topic->previousPageUrl() }}" aria-label="Previous">
-                                    <span aria-hidden="true">Prev</span>
+                                <a class="page-link" href="{{ $topics->url(1) }}" aria-label="First">
+                                    {{-- Prev: href="{{ $topics->previousPageUrl() }}" --}}
+                                    <span aria-hidden="true">First</span>
                                 </a>
                             </li>
                         @endif
 
-                        @for ($i = 1; $i <= $topic->lastPage(); $i++)
-                            <li class="page-item active {{ $topic->currentPage() == $i ? 'active' : '' }}"
-                                aria-current="page">
-                                <a class="page-link" href="{{ $topic->url($i) }}">{{ $i }}</a>
+                        {{-- Loop through all pages --}}
+                        @for ($i = 1; $i <= $topics->lastPage(); $i++)
+                            <li class="page-item {{ $topics->currentPage() == $i ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $topics->url($i) }}">{{ $i }}</a>
                             </li>
                         @endfor
 
-                        @if ($topic->hasMorePages())
+                        {{-- Check if there are more pages --}}
+                        @if ($topics->hasMorePages())
                             <li class="page-item">
-                                <a class="page-link " href="{{ $trendings->nextPageUrl() }}" aria-label="Next">
-                                    <span aria-hidden="true">Next</span>
+                                <a class="page-link" href="{{ $topics->url($topics->lastPage()) }}" aria-label="Last">
+                                    {{-- Next href="{{ $topics->nextPageUrl() }}"  --}}
+                                    <span aria-hidden="true">Last</span>
                                 </a>
                             </li>
                         @else
                             <li class="page-item disabled">
-                                <span class="page-link" aria-hidden="true">Next</span>
+                                <span class="page-link" aria-hidden="true">Last</span>
                             </li>
                         @endif
                     </ul>
-                </nav> --}}
-
+                </nav>
             </div>
+
         </div>
     </div>
 </section>
